@@ -4,6 +4,7 @@ include(${PASTA_3RD_PARTY_DIR}/doctest/doctest.cmake)
 
 list(APPEND PASTA_UNITTESTS 
   check_ops
+  check_cycles
 )
 
 string(FIND '${CMAKE_CXX_FLAGS}' "-fsanitize" sanitize)

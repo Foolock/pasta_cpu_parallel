@@ -4,12 +4,12 @@ int main() {
 
   pasta::PASTA partitioner; 
 
-  auto A = partitioner.insert_node("A");
-  auto B = partitioner.insert_node("B");
-  auto C = partitioner.insert_node("C");
+  pasta::Node* A = partitioner.insert_node("A");
+  pasta::Node* B = partitioner.insert_node("B");
+  pasta::Node* C = partitioner.insert_node("C");
 
-  auto AB = partitioner.insert_edge(A, B);
-  auto AC = partitioner.insert_edge(A, C);
+  pasta::Edge* AB = partitioner.insert_edge(A, B);
+  pasta::Edge* AC = partitioner.insert_edge(B, C);
 
   if(partitioner.has_cycle_before_partition()) {
     std::cout << "input graph has cycle.\n";
