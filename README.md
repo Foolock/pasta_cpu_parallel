@@ -12,3 +12,10 @@ make
 ./examples/simple
 ```
 
+### To test the correctness of pasta
+```bash
+#after compiling the project
+cd build
+ctest
+```
+
