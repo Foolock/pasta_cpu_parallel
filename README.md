@@ -8,14 +8,9 @@ mkdir build
 cd build
 cmake ../
 make
+ctest # this is to run the testcases to verify correctness
 ./examples/manual
 ./examples/simple
 ```
 
-### To test the correctness of pasta
-```bash
-#after compiling the project
-cd build
-ctest
-```
 
