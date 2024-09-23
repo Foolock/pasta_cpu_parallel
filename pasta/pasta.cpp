@@ -364,16 +364,14 @@ namespace pasta{
     }
   }
 
-  void PASTA::run_graph_before_partition(size_t task_runtime) {
+  void PASTA::run_graph_before_partition(size_t matrix_size) {
     
     tf::Taskflow taskflow;
     tf::Executor executor;
 
-    size_t matrix_size = 8;
-
     for(auto& node : _nodes) {
-      node._task = taskflow.emplace([this, task_runtime, matrix_size]() {
-        // std::this_thread::sleep_for(std::chrono::microseconds(task_runtime));
+      node._task = taskflow.emplace([this, matrix_size]() {
+        // std::this_thread::sleep_for(std::chrono::nanoseconds(task_runtime));
         size_t N = matrix_size;
         size_t M = matrix_size;
         size_t K = matrix_size;
@@ -407,7 +405,7 @@ namespace pasta{
               << " us\n";
   }
 
-  void PASTA::run_graph_after_partition(size_t task_runtime) {
+  void PASTA::run_graph_after_partition(size_t matrix_size) {
     
     if(_max_cluster_id < 0) {
       std::cerr << "partition failed: _max_cluster_id is wrong...\n";
@@ -417,12 +415,10 @@ namespace pasta{
     tf::Taskflow taskflow;
     tf::Executor executor;
 
-    size_t matrix_size = 8;
-
     for(auto& cnode : _cnodes) {
-      cnode._task = taskflow.emplace([&cnode, task_runtime, matrix_size]() {
+      cnode._task = taskflow.emplace([&cnode, matrix_size]() {
         for(size_t i=0; i<cnode._nodes.size(); i++) {
-          // std::this_thread::sleep_for(std::chrono::microseconds(task_runtime));
+          // std::this_thread::sleep_for(std::chrono::nanoseconds(task_runtime));
           size_t N = matrix_size;
           size_t M = matrix_size;
           size_t K = matrix_size;
