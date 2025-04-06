@@ -26,6 +26,15 @@ Made a cpu-only version so we can run it on mac/ubuntu without involving GPU.
 ```bash
 
 ~$ # after you make the project and goes into the /build directory
-~$ ./examples/run 8 10 ../benchmarks/simple.txt
+~$ ./examples/run 8 20 ../benchmarks/des_perf.txt 
 
+```
+
+And it should print out the following information
+
+```
+num_nodes: 303690
+num_edges: 387291
+average_degree: 1.27528
+partitioned_taskflow_runtime: 8324 us
 ```
