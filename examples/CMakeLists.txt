@@ -1,10 +1,12 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/examples)
 add_executable(manual ${PASTA_EXAMPLE_DIR}/manual.cpp)
 add_executable(simple ${PASTA_EXAMPLE_DIR}/simple.cpp)
+add_executable(run ${PASTA_EXAMPLE_DIR}/run.cpp)
 
 list(APPEND PASTA_EXAMPLES
   manual
   simple
+  run 
 )
 
 find_package(Threads REQUIRED)

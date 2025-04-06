@@ -95,6 +95,9 @@ namespace pasta {
       inline size_t num_nodes() const {
         return _nodes.size();
       }
+      inline size_t num_edges() const {
+        return _edges.size();
+      }
       inline void set_partition_size(const size_t partition_size) {
         _partition_size = partition_size;
       }
